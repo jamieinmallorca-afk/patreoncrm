@@ -1,6 +1,9 @@
+export const dynamic = 'force-dynamic'
+
 import { redirect } from 'next/navigation'
 import { getSession } from '@/lib/session'
 import { createAdminClient } from '@/lib/supabase'
+import { getPgClient } from '@/lib/db'
 import ConnectButton from './ConnectButton'
 import PricingCards from './PricingCards'
 import WinbackSection from './WinbackSection'
@@ -15,40 +18,55 @@ export default async function DashboardPage({
 
   const db = createAdminClient()
 
+  // profiles: use Supabase client (these columns exist in old cache)
   const { data: profile } = await db
     .from('profiles')
-    .select('stripe_subscription_id, onboarding_completed')
+    .select('stripe_subscription_id')
     .eq('id', session.userId)
     .single()
 
-  if (!profile?.onboarding_completed) redirect('/onboarding')
+  // platform_connections: new table — use direct pg
+  let isConnected = false
+  let campaignId: string | null = null
+  let subscribers: Array<{ health_score: number; display_name: string | null; x_username: string | null }> = []
 
-  // Check if Patreon is connected
-  const { data: connection } = await db
-    .from('platform_connections')
-    .select('platform_user_id, metadata')
-    .eq('profile_id', session.userId)
-    .eq('platform', 'patreon')
-    .single()
+  const pg = await getPgClient()
+  try {
+    const connRes = await pg.query<{ platform_user_id: string; metadata: Record<string, string> }>(
+      `SELECT platform_user_id, metadata
+       FROM platform_connections
+       WHERE profile_id = $1 AND platform = 'patreon'
+       LIMIT 1`,
+      [session.userId]
+    )
 
-  const { data: subscribers } = await db
-    .from('subscribers')
-    .select('health_score, display_name, x_username')
-    .eq('profile_id', session.userId)
-    .eq('platform', 'patreon')
-    .order('health_score', { ascending: true })
+    if (connRes.rows.length > 0) {
+      isConnected = true
+      campaignId = connRes.rows[0].metadata?.campaign_id ?? null
+    }
 
-  const totalSubscribers = subscribers?.length ?? 0
-  const atRiskCount = subscribers?.filter(s => s.health_score < 30).length ?? 0
+    const subRes = await pg.query<{ health_score: number; display_name: string | null; x_username: string | null }>(
+      `SELECT health_score, display_name, x_username
+       FROM subscribers
+       WHERE profile_id = $1 AND platform = 'patreon'
+       ORDER BY health_score ASC`,
+      [session.userId]
+    )
+    subscribers = subRes.rows
+  } catch (err) {
+    console.error('[dashboard] pg query error', err)
+  } finally {
+    await pg.end()
+  }
+
+  const totalSubscribers = subscribers.length
+  const atRiskCount = subscribers.filter(s => s.health_score < 30).length
   const avgHealthScore =
     totalSubscribers > 0
-      ? Math.round(
-          subscribers!.reduce((acc, s) => acc + (s.health_score ?? 100), 0) / totalSubscribers
-        )
+      ? Math.round(subscribers.reduce((acc, s) => acc + (s.health_score ?? 100), 0) / totalSubscribers)
       : 100
 
   const isPro = !!profile?.stripe_subscription_id
-  const isConnected = !!connection
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
@@ -65,6 +83,7 @@ export default async function DashboardPage({
               Patreon connected
             </span>
           )}
+          <span className="text-sm text-slate-500">{session.patreonUsername}</span>
           <a
             href="/api/auth/logout"
             className="text-sm text-slate-500 hover:text-white transition-colors"
@@ -95,9 +114,9 @@ export default async function DashboardPage({
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4">
           {[
-            { label: 'Total Patrons',  value: totalSubscribers.toLocaleString(), color: 'text-white' },
-            { label: 'At Risk',        value: atRiskCount.toLocaleString(),       color: 'text-amber-400' },
-            { label: 'Avg Health',     value: `${avgHealthScore}%`,               color: avgHealthScore >= 70 ? 'text-emerald-400' : avgHealthScore >= 40 ? 'text-amber-400' : 'text-red-400' },
+            { label: 'Total Patrons', value: totalSubscribers.toLocaleString(), color: 'text-white' },
+            { label: 'At Risk', value: atRiskCount.toLocaleString(), color: 'text-amber-400' },
+            { label: 'Avg Health', value: `${avgHealthScore}%`, color: avgHealthScore >= 70 ? 'text-emerald-400' : avgHealthScore >= 40 ? 'text-amber-400' : 'text-red-400' },
           ].map(({ label, value, color }) => (
             <div key={label} className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5">
               <p className={`text-3xl font-bold ${color}`}>{value}</p>
@@ -120,7 +139,7 @@ export default async function DashboardPage({
                 </tr>
               </thead>
               <tbody>
-                {(subscribers ?? [])
+                {subscribers
                   .filter(s => s.health_score < 50)
                   .slice(0, 20)
                   .map((s, i) => (

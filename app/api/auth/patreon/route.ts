@@ -1,22 +1,18 @@
 /**
  * GET /api/auth/patreon
- * Redirects the user to Patreon OAuth. Requires the user to already have
- * an XCreator session (connected their X account first).
+ * Starts the Patreon OAuth flow. No prior session required —
+ * Patreon IS the login method for PatreonCRM.
  */
+
+export const dynamic = 'force-dynamic'
 
 import { NextRequest, NextResponse } from 'next/server'
 import crypto from 'crypto'
-import { getSession } from '@/lib/session'
 
 const PATREON_CLIENT_ID = process.env.PATREON_CLIENT_ID!
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL!
 
 export async function GET(request: NextRequest) {
-  const session = getSession()
-  if (!session) {
-    return NextResponse.redirect(new URL('/', request.url))
-  }
-
   const state = crypto.randomBytes(16).toString('hex')
 
   const params = new URLSearchParams({

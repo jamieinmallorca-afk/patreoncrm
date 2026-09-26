@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
   const db = createAdminClient()
   const { data: profile } = await db
     .from('profiles')
-    .select('stripe_customer_id, x_username')
+    .select('stripe_customer_id')
     .eq('id', session.userId)
     .single()
 
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     const customer = await stripe.customers.create({
       metadata: {
         profile_id: session.userId,
-        x_username: session.xUsername,
+        patreon_username: session.patreonUsername,
       },
     })
     customerId = customer.id

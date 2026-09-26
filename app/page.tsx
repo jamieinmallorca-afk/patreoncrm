@@ -74,7 +74,7 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-4">
           <Link href="#pricing" className="text-sm text-white/60 hover:text-white transition-colors">Pricing</Link>
-          <Link href="/dashboard" className="btn-primary text-sm px-4 py-2">
+          <Link href="/api/auth/patreon" className="btn-primary text-sm px-4 py-2">
             Get started
           </Link>
         </div>
@@ -96,7 +96,7 @@ export default function Home() {
           The CRM Patreon never built.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/dashboard" className="btn-primary text-base">
+          <Link href="/api/auth/patreon" className="btn-primary text-base">
             Connect your Patreon →
           </Link>
           <Link href="#features" className="btn-secondary text-base">
@@ -214,7 +214,7 @@ export default function Home() {
                 ))}
               </ul>
               <Link
-                href="/dashboard"
+                href="/api/auth/patreon"
                 className={`block text-center font-semibold py-3 rounded-xl transition-all ${
                   t.highlight
                     ? 'bg-brand-500 hover:bg-brand-600 text-white'
