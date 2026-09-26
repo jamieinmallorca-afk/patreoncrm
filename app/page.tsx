@@ -3,33 +3,33 @@ import Link from 'next/link'
 const features = [
   {
     icon: '📊',
-    title: 'Subscriber Health Scores',
-    desc: "Every paid subscriber gets a daily 0–100 score based on the engagement signals X makes available — recency, activity, and tier. See who's about to cancel before they do.",
+    title: 'Patron Health Scores',
+    desc: "Every patron gets a daily 0–100 score based on the engagement signals Patreon makes available — charge history, pledge tenure, and activity. See who's about to cancel before they do.",
   },
   {
     icon: '🔴',
     title: 'Churn Risk Flags',
-    desc: 'Subscribers who haven\'t engaged in 14, 30, or 60 days are automatically flagged Red / Amber / Green. No manual tracking needed.',
+    desc: 'Patrons with declining charges, long inactivity, or failed payments are automatically flagged Red / Amber / Green. No manual tracking needed.',
   },
   {
     icon: '💬',
-    title: 'Automated Win-Back DMs',
-    desc: 'When a subscriber crosses a churn threshold, a personalised DM goes out automatically. Set it once, recover revenue forever.',
+    title: 'Automated Win-Back Emails',
+    desc: 'When a patron crosses a churn threshold, a personalised email goes out automatically. Set it once, recover revenue forever.',
   },
   {
     icon: '💰',
     title: 'Revenue Dashboard',
-    desc: "MRR, churn rate, new vs lost subscribers this month, and LTV by cohort — all in one view X's native analytics don't give you.",
+    desc: "MRR, churn rate, new vs lost patrons this month, and LTV by tier — all in one view Patreon's native analytics don't give you.",
   },
   {
     icon: '📈',
-    title: 'Content Attribution',
-    desc: 'See which post types — exclusive threads, videos, polls — drive subscriber growth or trigger cancellations. Double down on what works.',
+    title: 'Tier Attribution',
+    desc: 'See which tiers retain best and which trigger the most cancellations. Know where to focus your content energy.',
   },
   {
     icon: '🎯',
     title: 'Cohort Analysis',
-    desc: "Which month's subscribers retain best? What's the average LTV by pricing tier? Know your best acquisition periods.",
+    desc: "Which month's patrons stick around longest? What's the average LTV by pledge level? Know your best acquisition periods.",
   },
 ]
 
@@ -38,8 +38,8 @@ const tiers = [
     name: 'Free',
     price: '$0',
     period: 'forever',
-    description: 'Try it with your first 100 subscribers.',
-    featureList: ['Up to 100 subscribers', 'Basic health scores', 'Churn flags', '7-day data history'],
+    description: 'Try it with your first 100 patrons.',
+    featureList: ['Up to 100 patrons', 'Basic health scores', 'Churn flags', '7-day data history'],
     cta: 'Start free',
     highlight: false,
   },
@@ -47,8 +47,8 @@ const tiers = [
     name: 'Pro',
     price: '$29',
     period: '/month',
-    description: 'For creators serious about subscriber retention.',
-    featureList: ['Up to 1,000 subscribers', 'Full health scoring', 'Automated win-back DMs', 'Revenue dashboard', 'Content attribution', '90-day history'],
+    description: 'For creators serious about patron retention.',
+    featureList: ['Up to 1,000 patrons', 'Full health scoring', 'Automated win-back emails', 'Revenue dashboard', 'Tier attribution', '90-day history'],
     cta: 'Start Pro trial',
     highlight: true,
   },
@@ -57,7 +57,7 @@ const tiers = [
     price: '$79',
     period: '/month',
     description: 'For high-volume creators and agencies.',
-    featureList: ['Up to 5,000 subscribers', 'Everything in Pro', 'Cohort analytics', 'API access', 'Priority support', 'Unlimited history'],
+    featureList: ['Up to 5,000 patrons', 'Everything in Pro', 'Cohort analytics', 'API access', 'Priority support', 'Unlimited history'],
     cta: 'Start Scale trial',
     highlight: false,
   },
@@ -70,7 +70,7 @@ export default function Home() {
       <nav className="border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
           <span className="text-xl font-bold text-brand-500">✦</span>
-          <span className="font-bold text-lg tracking-tight">XCreator CRM</span>
+          <span className="font-bold text-lg tracking-tight">PatreonCRM</span>
         </div>
         <div className="flex items-center gap-4">
           <Link href="#pricing" className="text-sm text-white/60 hover:text-white transition-colors">Pricing</Link>
@@ -84,33 +84,33 @@ export default function Home() {
       <section className="max-w-4xl mx-auto px-6 pt-24 pb-20 text-center">
         <div className="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 rounded-full px-4 py-1.5 text-sm text-brand-500 font-medium mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
-          Built for X creators with paid subscribers
+          Built for Patreon creators
         </div>
         <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
-          Stop losing paid subscribers<br />
+          Stop losing patrons<br />
           <span className="text-brand-500">before you even notice.</span>
         </h1>
         <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-          XCreator CRM tracks every paid subscriber on X, scores their engagement daily,
-          flags churn risk automatically, and sends win-back DMs before they cancel.
-          The CRM X never built.
+          PatreonCRM tracks every patron, scores their engagement daily,
+          flags churn risk automatically, and sends win-back emails before they cancel.
+          The CRM Patreon never built.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/dashboard" className="btn-primary text-base">
-            Connect your X account →
+            Connect your Patreon →
           </Link>
           <Link href="#features" className="btn-secondary text-base">
             See how it works
           </Link>
         </div>
-        <p className="mt-4 text-sm text-white/40">Free up to 100 subscribers · No credit card required</p>
+        <p className="mt-4 text-sm text-white/40">Free up to 100 patrons · No credit card required</p>
       </section>
 
       {/* Stats bar */}
       <section className="border-y border-white/10 bg-white/[0.02] py-8">
         <div className="max-w-4xl mx-auto px-6 grid grid-cols-3 gap-8 text-center">
           {[
-            { value: '3x', label: 'more subscribers recovered when you act within 48 hrs' },
+            { value: '3x', label: 'more patrons recovered when you act within 48 hrs' },
             { value: '< 2 min', label: 'to connect & see your data' },
             { value: '$0', label: 'to start' },
           ].map((s) => (
@@ -126,30 +126,29 @@ export default function Home() {
       <section className="max-w-4xl mx-auto px-6 py-24">
         <h2 className="text-3xl font-bold text-center mb-4">How it works</h2>
         <p className="text-white/50 text-center mb-16 max-w-xl mx-auto">
-          Set up once. XCreator CRM runs in the background and alerts you before you lose revenue.
+          Set up once. PatreonCRM runs in the background and alerts you before you lose revenue.
         </p>
         <div className="relative">
-          {/* Connector line */}
           <div className="hidden md:block absolute top-10 left-[16.66%] right-[16.66%] h-px bg-white/10" />
           <div className="grid md:grid-cols-3 gap-10 text-center relative">
             {[
               {
                 step: '01',
                 icon: '🔗',
-                title: 'Connect your X account',
-                desc: 'OAuth in under 2 minutes. We sync your paid subscriber list and start scoring engagement immediately.',
+                title: 'Connect your Patreon',
+                desc: 'OAuth in under 2 minutes. We sync your patron list and start scoring engagement immediately.',
               },
               {
                 step: '02',
                 icon: '🔴',
                 title: 'See who\'s at risk',
-                desc: 'Every subscriber gets a daily health score. Anyone going cold gets flagged automatically — you see it on your dashboard before they cancel.',
+                desc: 'Every patron gets a daily health score. Declined charges, long inactivity, and pledge drops are flagged automatically.',
               },
               {
                 step: '03',
                 icon: '💬',
                 title: 'Win them back automatically',
-                desc: 'When a subscriber crosses your threshold, a personalised DM goes out through your own X account — one per subscriber, max once every 30 days, fully within X\'s guidelines.',
+                desc: 'When a patron crosses your threshold, a personalised email goes out — one per patron, max once every 30 days.',
               },
             ].map((s) => (
               <div key={s.step} className="flex flex-col items-center">
@@ -167,9 +166,9 @@ export default function Home() {
 
       {/* Features */}
       <section id="features" className="max-w-6xl mx-auto px-6 py-24">
-        <h2 className="text-3xl font-bold text-center mb-4">Everything X won&apos;t tell you</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">Everything Patreon won&apos;t tell you</h2>
         <p className="text-white/50 text-center mb-16 max-w-xl mx-auto">
-          X&apos;s native analytics show you follower counts and impressions. XCreator CRM shows you who&apos;s about to cancel and what to do about it.
+          Patreon&apos;s native analytics show you total patrons and earnings. PatreonCRM shows you who&apos;s about to cancel and what to do about it.
         </p>
         <div className="grid md:grid-cols-3 gap-6">
           {features.map((f) => (
@@ -185,7 +184,7 @@ export default function Home() {
       {/* Pricing */}
       <section id="pricing" className="max-w-5xl mx-auto px-6 pb-24">
         <h2 className="text-3xl font-bold text-center mb-4">Simple pricing</h2>
-        <p className="text-white/50 text-center mb-16">Starts free. Scales with your subscriber count.</p>
+        <p className="text-white/50 text-center mb-16">Starts free. Scales with your patron count.</p>
         <div className="grid md:grid-cols-3 gap-6">
           {tiers.map((t) => (
             <div
@@ -231,7 +230,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-8 text-center text-sm text-white/30">
-        <p className="mb-3">© 2026 XCreator CRM · Built for the creator economy</p>
+        <p className="mb-3">© 2026 PatreonCRM · Built for the creator economy</p>
         <div className="flex justify-center gap-6">
           <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>
           <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy</Link>

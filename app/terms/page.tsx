@@ -1,13 +1,13 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Terms of Service — XCreator CRM' }
+export const metadata = { title: 'Terms of Service — PatreonCRM' }
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <nav className="border-b border-slate-800 px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-indigo-400">XCreator</span>
+          <span className="text-xl font-bold text-indigo-400">Patreon</span>
           <span className="text-slate-600">CRM</span>
         </Link>
       </nav>
@@ -21,7 +21,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">1. Acceptance of Terms</h2>
             <p>
-              By accessing or using XCreator CRM ("the Service"), you agree to be bound by these
+              By accessing or using PatreonCRM ("the Service"), you agree to be bound by these
               Terms of Service. If you do not agree, do not use the Service.
             </p>
           </section>
@@ -29,18 +29,18 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">2. Description of Service</h2>
             <p>
-              XCreator CRM is a subscriber relationship management tool for X (formerly Twitter)
-              creators. It connects to your X account via OAuth, analyses your paid subscriber
-              engagement, and provides tools to identify and re-engage at-risk subscribers.
+              PatreonCRM is a patron relationship management tool for Patreon creators. It connects
+              to your Patreon account via OAuth, analyses your patron engagement, and provides tools
+              to identify and re-engage at-risk patrons.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">3. Account Registration</h2>
             <p>
-              You must connect a valid X account to use the Service. You are responsible for
-              maintaining the security of your account and for all activity that occurs under it.
-              You must notify us immediately of any unauthorised access.
+              You must connect a valid Patreon creator account to use the Service. You are
+              responsible for maintaining the security of your account and for all activity that
+              occurs under it. You must notify us immediately of any unauthorised access.
             </p>
           </section>
 
@@ -48,7 +48,7 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold text-white mb-3">4. Acceptable Use</h2>
             <p className="mb-3">You agree not to:</p>
             <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-              <li>Use the Service to send spam or unsolicited messages in violation of X's rules</li>
+              <li>Use the Service to send spam or unsolicited messages in violation of applicable laws</li>
               <li>Attempt to reverse engineer or extract source code from the Service</li>
               <li>Use the Service in any way that violates applicable laws or regulations</li>
               <li>Share your account credentials with third parties</li>
@@ -62,7 +62,7 @@ export default function TermsPage() {
               Paid plans are billed monthly. Payments are processed securely by Stripe. By
               subscribing, you authorise us to charge your payment method on a recurring basis
               until you cancel. Prices are displayed in USD and are subject to change with 30
-              days' notice.
+              days&apos; notice.
             </p>
           </section>
 
@@ -79,15 +79,15 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold text-white mb-3">7. Intellectual Property</h2>
             <p>
               The Service and its original content, features, and functionality are owned by
-              XCreator CRM and are protected by international copyright, trademark, and other
-              intellectual property laws. Your subscriber data remains yours at all times.
+              PatreonCRM and are protected by international copyright, trademark, and other
+              intellectual property laws. Your patron data remains yours at all times.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">8. Disclaimer of Warranties</h2>
             <p>
-              The Service is provided "as is" without warranties of any kind, express or implied.
+              The Service is provided &quot;as is&quot; without warranties of any kind, express or implied.
               We do not guarantee that the Service will be uninterrupted, error-free, or that
               any specific business results will be achieved from its use.
             </p>
@@ -96,7 +96,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">9. Limitation of Liability</h2>
             <p>
-              To the maximum extent permitted by law, XCreator CRM shall not be liable for any
+              To the maximum extent permitted by law, PatreonCRM shall not be liable for any
               indirect, incidental, special, consequential, or punitive damages, or any loss of
               profits or revenues, whether incurred directly or indirectly.
             </p>
@@ -115,8 +115,8 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold text-white mb-3">11. Contact</h2>
             <p>
               For questions about these Terms, contact us at{' '}
-              <a href="mailto:hello@xcreatorcrm.com" className="text-indigo-400 hover:underline">
-                hello@xcreatorcrm.com
+              <a href="mailto:hello@patreoncrm.com" className="text-indigo-400 hover:underline">
+                hello@patreoncrm.com
               </a>.
             </p>
           </section>

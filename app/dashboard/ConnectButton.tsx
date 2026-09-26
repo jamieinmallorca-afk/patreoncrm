@@ -3,13 +3,13 @@
 export default function ConnectButton() {
   return (
     <a
-      href="/api/auth/x"
-      className="inline-flex items-center gap-2 bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
+      href="/api/auth/patreon"
+      className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
     >
-      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.386 0c-3.96 0-7.17 3.21-7.17 7.17 0 3.946 3.21 7.156 7.17 7.156 3.946 0 7.17-3.21 7.17-7.157C22.557 3.21 19.332 0 15.386 0zM1.443 24h4.01V0h-4.01V24z"/>
       </svg>
-      Connect X Account
+      Connect your Patreon
     </a>
   )
 }

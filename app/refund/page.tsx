@@ -1,13 +1,13 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Refund Policy — XCreator CRM' }
+export const metadata = { title: 'Refund Policy — PatreonCRM' }
 
 export default function RefundPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <nav className="border-b border-slate-800 px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-indigo-400">XCreator</span>
+          <span className="text-xl font-bold text-indigo-400">Patreon</span>
           <span className="text-slate-600">CRM</span>
         </Link>
       </nav>
@@ -21,15 +21,15 @@ export default function RefundPage() {
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">Our Commitment</h2>
             <p>
-              We want you to be satisfied with XCreator CRM. If the product isn't working for
-              you, we'd rather give you your money back than keep a customer who isn't happy.
+              We want you to be satisfied with PatreonCRM. If the product isn&apos;t working for
+              you, we&apos;d rather give you your money back than keep a customer who isn&apos;t happy.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">14-Day Money-Back Guarantee</h2>
             <p>
-              If you're not satisfied with XCreator CRM for any reason, contact us within
+              If you&apos;re not satisfied with PatreonCRM for any reason, contact us within
               <strong className="text-white"> 14 days</strong> of your first payment and we will
               issue a full refund — no questions asked. This applies to first-time subscribers only.
             </p>
@@ -59,10 +59,10 @@ export default function RefundPage() {
             <h2 className="text-lg font-semibold text-white mb-3">How to Request a Refund</h2>
             <p>
               Email{' '}
-              <a href="mailto:hello@xcreatorcrm.com" className="text-indigo-400 hover:underline">
-                hello@xcreatorcrm.com
+              <a href="mailto:hello@patreoncrm.com" className="text-indigo-400 hover:underline">
+                hello@patreoncrm.com
               </a>{' '}
-              with the subject line <strong className="text-white">"Refund Request"</strong> and
+              with the subject line <strong className="text-white">&quot;Refund Request&quot;</strong> and
               include the email address associated with your account. We will process eligible
               refunds within 5 business days. Refunds are returned to the original payment method.
             </p>
@@ -71,9 +71,9 @@ export default function RefundPage() {
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">Questions</h2>
             <p>
-              If you have any questions about billing or refunds, we're happy to help at{' '}
-              <a href="mailto:hello@xcreatorcrm.com" className="text-indigo-400 hover:underline">
-                hello@xcreatorcrm.com
+              If you have any questions about billing or refunds, we&apos;re happy to help at{' '}
+              <a href="mailto:hello@patreoncrm.com" className="text-indigo-400 hover:underline">
+                hello@patreoncrm.com
               </a>.
             </p>
           </section>

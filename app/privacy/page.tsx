@@ -1,13 +1,13 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Privacy Policy — XCreator CRM' }
+export const metadata = { title: 'Privacy Policy — PatreonCRM' }
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <nav className="border-b border-slate-800 px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-indigo-400">XCreator</span>
+          <span className="text-xl font-bold text-indigo-400">Patreon</span>
           <span className="text-slate-600">CRM</span>
         </Link>
       </nav>
@@ -20,13 +20,13 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">1. Information We Collect</h2>
-            <p className="mb-3">When you use XCreator CRM, we collect:</p>
+            <p className="mb-3">When you use PatreonCRM, we collect:</p>
             <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-              <li>Your X (Twitter) username, user ID, and OAuth access token</li>
-              <li>Subscriber data synced from your X account (usernames, engagement signals)</li>
+              <li>Your Patreon user ID and OAuth access token</li>
+              <li>Patron data synced from your Patreon campaign (names, pledge status, charge history)</li>
               <li>Payment information processed by Stripe (we never store card details directly)</li>
               <li>Usage data such as login timestamps and feature interactions</li>
-              <li>DM logs recording messages sent on your behalf and their delivery status</li>
+              <li>Win-back email logs recording messages sent and their delivery status</li>
             </ul>
           </section>
 
@@ -35,8 +35,8 @@ export default function PrivacyPage() {
             <p className="mb-3">We use the information we collect to:</p>
             <ul className="list-disc list-inside space-y-1.5 text-slate-400">
               <li>Provide and operate the Service</li>
-              <li>Calculate subscriber health scores and churn risk</li>
-              <li>Send win-back DMs on your behalf when you enable that feature</li>
+              <li>Calculate patron health scores and churn risk</li>
+              <li>Send win-back emails on your behalf when you enable that feature</li>
               <li>Process payments and manage your subscription</li>
               <li>Send transactional emails (receipts, account notices)</li>
               <li>Improve the Service through aggregated, anonymised analytics</li>
@@ -44,13 +44,13 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">3. X API Data</h2>
+            <h2 className="text-lg font-semibold text-white mb-3">3. Patreon API Data</h2>
             <p>
-              We access your X account data solely to provide the features you request. We store
+              We access your Patreon account data solely to provide the features you request. We store
               your OAuth access token securely to perform background syncs and, if enabled, to
-              send win-back DMs on your behalf. We do not sell, share, or use your X data for
+              send win-back emails on your behalf. We do not sell, share, or use your Patreon data for
               advertising or profiling purposes. You can revoke our access at any time from your
-              X account's connected apps settings.
+              Patreon account&apos;s connected apps settings.
             </p>
           </section>
 
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
               <li><strong className="text-slate-300">Stripe</strong> — for payment processing</li>
               <li><strong className="text-slate-300">Supabase</strong> — for database hosting</li>
               <li><strong className="text-slate-300">Vercel</strong> — for application hosting</li>
-              <li><strong className="text-slate-300">X (Twitter)</strong> — to sync your subscriber data and send DMs</li>
+              <li><strong className="text-slate-300">Patreon</strong> — to sync your patron data</li>
             </ul>
             <p className="mt-3">
               We may also disclose data when required by law or to protect our legal rights.
@@ -83,7 +83,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-semibold text-white mb-3">6. Cookies</h2>
             <p>
-              We use a single session cookie (<code className="text-indigo-400 text-sm">xcreator_session</code>)
+              We use a single session cookie (<code className="text-indigo-400 text-sm">patreoncrm_session</code>)
               to keep you logged in. It is httpOnly, secure, and contains no third-party tracking.
               We do not use advertising cookies or third-party analytics cookies.
             </p>
@@ -96,13 +96,13 @@ export default function PrivacyPage() {
               <li>Access the personal data we hold about you</li>
               <li>Request correction of inaccurate data</li>
               <li>Request deletion of your account and all associated data</li>
-              <li>Export your subscriber data</li>
-              <li>Revoke X API access at any time</li>
+              <li>Export your patron data</li>
+              <li>Revoke Patreon API access at any time</li>
             </ul>
             <p className="mt-3">
               To exercise any of these rights, email{' '}
-              <a href="mailto:hello@xcreatorcrm.com" className="text-indigo-400 hover:underline">
-                hello@xcreatorcrm.com
+              <a href="mailto:hello@patreoncrm.com" className="text-indigo-400 hover:underline">
+                hello@patreoncrm.com
               </a>.
             </p>
           </section>
@@ -128,8 +128,8 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-semibold text-white mb-3">10. Contact</h2>
             <p>
               For privacy questions or data requests, contact{' '}
-              <a href="mailto:hello@xcreatorcrm.com" className="text-indigo-400 hover:underline">
-                hello@xcreatorcrm.com
+              <a href="mailto:hello@patreoncrm.com" className="text-indigo-400 hover:underline">
+                hello@patreoncrm.com
               </a>.
             </p>
           </section>
