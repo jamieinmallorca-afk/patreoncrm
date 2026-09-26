@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe, PLANS, PlanKey } from '@/lib/stripe'
 import { createAdminClient } from '@/lib/supabase'
