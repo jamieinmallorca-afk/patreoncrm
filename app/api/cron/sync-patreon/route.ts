@@ -10,6 +10,8 @@
  *   - Patron for less than 1 month: -10 (new, unproven loyalty)
  */
 
+export const dynamic = 'force-dynamic'
+
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase'
 
@@ -76,7 +78,6 @@ export async function POST(request: NextRequest) {
     const campaignId = (conn.metadata as { campaign_id?: string })?.campaign_id
     if (!campaignId || !conn.access_token) continue
 
-    // Fetch all active members (Patreon paginates at 500)
     const url =
       `https://www.patreon.com/api/oauth2/v2/campaigns/${campaignId}/members` +
       `?fields[member]=full_name,email,patron_status,last_charge_date,last_charge_status,` +
@@ -103,7 +104,7 @@ export async function POST(request: NextRequest) {
       profile_id: conn.profile_id,
       platform: 'patreon',
       platform_user_id: m.id,
-      x_user_id: m.id,                                      // kept for schema compat
+      x_user_id: m.id,
       x_username: m.attributes.full_name || m.attributes.email || m.id,
       display_name: m.attributes.full_name || m.attributes.email || m.id,
       health_score: calcHealthScore(m.attributes),
