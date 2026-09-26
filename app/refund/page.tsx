@@ -1,91 +1,137 @@
 import Link from 'next/link'
 
-export const metadata = { title: 'Refund Policy — PatreonCRM' }
+export const metadata = {
+  title: 'Refund Policy — PatreonCRM',
+}
+
+const EFFECTIVE_DATE = 'September 2026'
+const CONTACT_EMAIL = 'hello@patreoncrm.com'
 
 export default function RefundPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <nav className="border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+    <main className="min-h-screen bg-gray-950 text-white">
+      {/* Nav */}
+      <nav className="border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-indigo-400">Patreon</span>
-          <span className="text-slate-600">CRM</span>
+          <span className="text-xl font-bold text-orange-500">◆</span>
+          <span className="font-bold text-lg tracking-tight">PatreonCRM</span>
+        </Link>
+        <Link
+          href="/api/auth/patreon"
+          className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+        >
+          Connect Patreon
         </Link>
       </nav>
 
       <div className="max-w-3xl mx-auto px-6 py-16">
-        <h1 className="text-3xl font-bold mb-2">Refund Policy</h1>
-        <p className="text-slate-400 text-sm mb-12">Last updated: September 2026</p>
+        <h1 className="text-4xl font-bold mb-2">Refund Policy</h1>
+        <p className="text-white/40 text-sm mb-12">Effective date: {EFFECTIVE_DATE}</p>
 
-        <div className="space-y-10 text-slate-300 leading-relaxed">
+        <div className="space-y-8 text-white/70 leading-relaxed">
 
-          <section>
-            <h2 className="text-lg font-semibold text-white mb-3">Our Commitment</h2>
-            <p>
-              We want you to be satisfied with PatreonCRM. If the product isn&apos;t working for
-              you, we&apos;d rather give you your money back than keep a customer who isn&apos;t happy.
+          <section className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-6">
+            <p className="text-orange-300 font-semibold mb-2">The short version</p>
+            <p className="text-sm">
+              If you&apos;re not happy in your first 14 days on a paid plan, email us and we&apos;ll refund your first payment, no questions asked.
+              After 14 days, refunds are considered case by case.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">14-Day Money-Back Guarantee</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">14-Day Money-Back Guarantee</h2>
             <p>
-              If you&apos;re not satisfied with PatreonCRM for any reason, contact us within
-              <strong className="text-white"> 14 days</strong> of your first payment and we will
-              issue a full refund — no questions asked. This applies to first-time subscribers only.
+              All new Pro and Scale plan subscribers are covered by a 14-day money-back guarantee from the date
+              of their first payment. If you decide PatreonCRM isn&apos;t right for you within the first 14 days,
+              contact us at{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-orange-400 hover:underline">{CONTACT_EMAIL}</a>{' '}
+              with the subject line &quot;Refund Request&quot; and we will issue a full refund of your first payment.
+              No forms, no justification required.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">Cancellations</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">Refunds After 14 Days</h2>
             <p>
-              You can cancel your subscription at any time from the billing portal in your
-              dashboard. When you cancel, you will not be charged again. You will continue to
-              have access to paid features until the end of your current billing period.
-              We do not offer partial-month refunds for cancellations mid-cycle.
+              After the initial 14-day period, payments are generally non-refundable. However, we consider
+              refund requests case by case. Circumstances where we will typically issue a refund or credit include:
             </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white mb-3">Exceptions</h2>
-            <p className="mb-3">Refunds will not be issued in the following circumstances:</p>
-            <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-              <li>Requests made more than 14 days after the charge date (outside the guarantee window)</li>
-              <li>Accounts found to be in violation of our Terms of Service</li>
-              <li>Renewals on existing subscriptions (only first payments are eligible)</li>
+            <ul className="list-disc list-inside space-y-2 ml-2 mt-3">
+              <li>You were charged in error (e.g. after cancellation)</li>
+              <li>A confirmed technical outage prevented you from using the Service for a significant period</li>
+              <li>Duplicate charges caused by a billing error on our side</li>
             </ul>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white mb-3">How to Request a Refund</h2>
-            <p>
-              Email{' '}
-              <a href="mailto:hello@patreoncrm.com" className="text-indigo-400 hover:underline">
-                hello@patreoncrm.com
-              </a>{' '}
-              with the subject line <strong className="text-white">&quot;Refund Request&quot;</strong> and
-              include the email address associated with your account. We will process eligible
-              refunds within 5 business days. Refunds are returned to the original payment method.
+            <p className="mt-4">
+              We do not issue refunds for partial months, unused features, or because you forgot to cancel before
+              the renewal date. We will always remind you 7 days before a subscription renewal if there is a
+              price change.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-white mb-3">Questions</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">Free Trial</h2>
             <p>
-              If you have any questions about billing or refunds, we&apos;re happy to help at{' '}
-              <a href="mailto:hello@patreoncrm.com" className="text-indigo-400 hover:underline">
-                hello@patreoncrm.com
-              </a>.
+              The Pro plan includes a 14-day free trial. You will not be charged until the trial period ends.
+              You can cancel at any time during the trial from Settings → Subscription with no charge.
+              If you do not cancel before the trial ends, your card will be charged for the first monthly period.
             </p>
           </section>
 
-        </div>
+          <section>
+            <h2 className="text-xl font-semibold text-white mb-3">Cancellations</h2>
+            <p>
+              You can cancel your subscription at any time from Settings → Subscription in your dashboard.
+              Cancellation takes effect at the end of your current billing period — you retain access to paid
+              features until then. We do not offer prorated refunds for the remaining days of a billing period
+              after cancellation.
+            </p>
+            <p className="mt-3">
+              After cancellation, your account downgrades to the Free plan. Your data is retained for 90 days
+              in case you decide to reactivate.
+            </p>
+          </section>
 
-        <div className="mt-16 pt-8 border-t border-slate-800 flex gap-6 text-sm text-slate-500">
-          <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <section>
+            <h2 className="text-xl font-semibold text-white mb-3">How Refunds Are Processed</h2>
+            <p>
+              Approved refunds are returned to the original payment method via Stripe within 5–10 business days,
+              depending on your bank. You will receive an email confirmation once the refund is issued.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-white mb-3">Account Deletion</h2>
+            <p>
+              Deleting your account (Settings → Delete Account) does not automatically trigger a refund.
+              If you want a refund alongside deleting your account, please email us first so we can process
+              the refund before the account data is removed.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold text-white mb-3">Contact</h2>
+            <p>
+              To request a refund or ask about billing, email{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-orange-400 hover:underline">{CONTACT_EMAIL}</a>{' '}
+              with the subject &quot;Refund Request&quot; and your account email address. We aim to respond within
+              one business day.
+            </p>
+          </section>
+
         </div>
       </div>
-    </div>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 py-8 px-6 mt-8">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-white/30">© 2026 PatreonCRM · Not affiliated with Patreon, Inc.</p>
+          <div className="flex items-center gap-6 text-sm text-white/40">
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/refund" className="text-orange-400">Refund Policy</Link>
+          </div>
+        </div>
+      </footer>
+    </main>
   )
 }
