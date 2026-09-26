@@ -3,6 +3,8 @@
  * Handles the OAuth callback from Patreon. Stores tokens in platform_connections.
  */
 
+export const dynamic = 'force-dynamic'
+
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase'
 import { getSession } from '@/lib/session'
