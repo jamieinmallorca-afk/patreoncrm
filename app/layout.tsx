@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'XCreator CRM — Subscriber Intelligence for X Creators',
-  description: 'Track churn, automate win-backs, and grow your paid subscriber revenue on X.',
+  title: 'PatreonCRM — Patron Retention for Creators',
+  description: 'Track patron health, flag churn risk, and win back lapsing patrons automatically.',
   openGraph: {
-    title: 'XCreator CRM',
-    description: 'The CRM built for X creators with paid subscribers.',
+    title: 'PatreonCRM',
+    description: 'The retention CRM built for Patreon creators.',
     type: 'website',
   },
 }
